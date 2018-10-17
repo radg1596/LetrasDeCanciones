@@ -15,37 +15,38 @@ class DetailSongViewController: UIViewController {
     var song: Song!
     var delegate: AddSongDelegate?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        songTextView.isEditable = false
-        guard let navControllerSongTVC = tabBarController?.viewControllers?.last as? UINavigationController, let songsTableVC =  navControllerSongTVC.viewControllers.first as? SongsTableViewController else {return}
-        delegate = songsTableVC
-        setupUI(songsTableVC: songsTableVC)
-        save()
-        setupUI(songsTableVC: songsTableVC)
+    var songsTableViewController: SongsTableViewController? {
+        let navigationControllerSongTVC = tabBarController?.viewControllers?.last as? UINavigationController
+        let songsTableViewController = navigationControllerSongTVC?.viewControllers.first as? SongsTableViewController
+        return songsTableViewController
     }
     
-    func setupUI(songsTableVC: SongsTableViewController) {
-        self.title = "\(song.name)-\(song.title)"
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+        delegate = songsTableViewController
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateSaveButtonStatus()
+    }
+    
+    func setupUI() {
+        title = "\(song.name)-\(song.title)"
+        songTextView.isEditable = false
         songTextView.text = song.text
-        let songInStorage = !songsTableVC.songs.contains(song)
+        updateSaveButtonStatus()
+    }
+    
+    func updateSaveButtonStatus() {
+        guard let songsTableViewController = songsTableViewController else {return}
+        let songInStorage = !songsTableViewController.songs.contains(song)
         navigationItem.rightBarButtonItem?.isEnabled = songInStorage
     }
     
-    func save() {
+    @IBAction func saveSong() {
         delegate?.added(song: song)
+        updateSaveButtonStatus()
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

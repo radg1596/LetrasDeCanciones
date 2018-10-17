@@ -10,8 +10,7 @@ import Foundation
 
 
 /*
-Modelo que nos sirve para contener el texto de la canción, el cual se obtiene de los datos JSON
-desde la API
+Modelo que nos sirve para contener el texto de la canción, el cual se obtiene de los datos JSON desde la API
  texto cancion = JSON["lyrics"]
 */
 struct JsonSong: Codable {

@@ -12,7 +12,7 @@ struct ClientText {
     
     //Url base de la API
     let baseURLComponents: URLComponents
-    
+    //Decodificador de JSON
     let jsonDecoder = JSONDecoder()
     
     /*
@@ -22,7 +22,7 @@ struct ClientText {
      -Después obtiene los datos de la API en el background, una vez
      obtenidos, los decodifica para obtener el texto de la canción, después ejecuta el closure recibido en el hilo principal.
      */
-    func get(path: String, completion: @escaping ( (String?) -> Void )) {
+    func get(path: String, completion: @escaping (String?) -> Void ) {
         var resquestURLComponents = baseURLComponents
         resquestURLComponents.path = path
         var resquest = URLRequest(url: resquestURLComponents.url!)

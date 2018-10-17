@@ -18,8 +18,8 @@ struct SongService {
     
     /*
      -Recibe como parámetros el nombre de la canción y el autor, y también un closure
-     -Se encarga de generar el path y obtener datos del cliente, después los
-     decodifica (A JsonSong) y por último ejecuta el closure envíandole el texto de la canción
+     -Se encarga de generar el path y obtener datos del cliente, después
+     crea un objeto Song y ejecuta el closure en el hilo princippal
      */
     func getSong(name: String, title: String, completion: @escaping (Song?) -> Void) {
         let path = "/v1/" + name + "/" + title

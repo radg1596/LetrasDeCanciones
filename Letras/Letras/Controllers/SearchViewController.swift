@@ -35,7 +35,6 @@ class SearchViewController: UIViewController {
         }
     }
     
-    
     func showUIAlert() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         let alertController = UIAlertController(title: "Song not found", message: "Please, retry with another one", preferredStyle: .alert)
@@ -49,8 +48,8 @@ class SearchViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let song = song else {return}
-        let detailSongVC = segue.destination as? DetailSongViewController
-        detailSongVC?.song = song
+        let detailSongViewController = segue.destination as? DetailSongViewController
+        detailSongViewController?.song = song
     }
     
     
