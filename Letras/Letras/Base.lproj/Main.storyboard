@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search-->
+        <!--My lyrics-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Letras" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="Letras" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,19 +58,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" id="uxP-h4-kPe"/>
+                    <navigationItem key="navigationItem" title="My lyrics" id="io9-HM-gwn"/>
                     <connections>
-                        <segue destination="B4W-Ha-lg5" kind="show" identifier="sucessSong" id="HGq-7o-vXg"/>
+                        <segue destination="vrl-Fa-eBm" kind="show" identifier="downloadSong" id="dBL-yc-L2B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1085.625" y="26.25"/>
+            <point key="canvasLocation" x="2024.8" y="25.637181409295355"/>
         </scene>
-        <!--My Songs-->
+        <!--My lyrics-->
         <scene sceneID="1be-wD-aPo">
             <objects>
-                <tableViewController id="0IS-16-8ca" sceneMemberID="viewController">
+                <tableViewController id="0IS-16-8ca" customClass="SongsTableViewController" customModule="Letras" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fDy-b9-mau">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,30 +106,50 @@
                             <outlet property="delegate" destination="0IS-16-8ca" id="P9S-8F-9pp"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="My Songs" id="zrK-Jk-MWs"/>
+                    <navigationItem key="navigationItem" title="My lyrics" id="Utl-5l-sDD"/>
                     <connections>
-                        <segue destination="B4W-Ha-lg5" kind="show" identifier="showSong" id="gY8-GW-p0c"/>
+                        <segue destination="vrl-Fa-eBm" kind="show" identifier="showSong" id="U8G-86-ERf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eev-iU-vTv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62" y="927"/>
+            <point key="canvasLocation" x="1879.2" y="985.45727136431788"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Song View Controller-->
         <scene sceneID="l96-qw-0bH">
             <objects>
-                <viewController id="vrl-Fa-eBm" sceneMemberID="viewController">
+                <viewController id="vrl-Fa-eBm" customClass="DetailSongViewController" customModule="Letras" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OII-dV-gUZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DXA-kV-gSx">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DXA-kV-gSx" firstAttribute="leading" secondItem="j3q-LR-j9f" secondAttribute="leading" id="cQA-T0-r4p"/>
+                            <constraint firstItem="j3q-LR-j9f" firstAttribute="trailing" secondItem="DXA-kV-gSx" secondAttribute="trailing" id="qvY-R5-11V"/>
+                            <constraint firstItem="DXA-kV-gSx" firstAttribute="top" secondItem="j3q-LR-j9f" secondAttribute="top" id="usU-pz-VCI"/>
+                            <constraint firstItem="j3q-LR-j9f" firstAttribute="bottom" secondItem="DXA-kV-gSx" secondAttribute="bottom" id="y2Z-ur-k05"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="j3q-LR-j9f"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZOO-au-fZ8"/>
+                    <navigationItem key="navigationItem" id="ZOO-au-fZ8">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="ej1-fh-FMx"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="songTextView" destination="DXA-kV-gSx" id="XIc-ZI-06X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yK9-2a-5jv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2024.8" y="926.98650674662679"/>
+            <point key="canvasLocation" x="2964" y="986.35682158920542"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dVK-fs-wlk">
@@ -137,38 +157,59 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="VCo-ip-laF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KAs-Wz-Lp6">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="0Gr-Gu-nZN"/>
-                        <segue destination="0IS-16-8ca" kind="relationship" relationship="viewControllers" id="cnF-ST-QVn"/>
+                        <segue destination="So4-Tf-7Lc" kind="relationship" relationship="viewControllers" id="0Gr-Gu-nZN"/>
+                        <segue destination="XPl-KD-3XU" kind="relationship" relationship="viewControllers" id="cnF-ST-QVn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZXv-bS-cwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="61.600000000000001" y="27.436281859070466"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Kfi-ue-1xd">
+        <!--Search-->
+        <scene sceneID="b26-mx-Xnb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B4W-Ha-lg5" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="So4-Tf-7Lc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" id="uxP-h4-kPe"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QK6-of-qYh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mN5-Ua-gZ8">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vrl-Fa-eBm" kind="relationship" relationship="rootViewController" id="l90-lu-qiz"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="g4d-bS-ASz"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dgm-ds-Tqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sB8-yX-F3S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1085.5999999999999" y="926.98650674662679"/>
+            <point key="canvasLocation" x="1085.5999999999999" y="25.637181409295355"/>
+        </scene>
+        <!--My Songs-->
+        <scene sceneID="agY-2D-LNV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XPl-KD-3XU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Songs" id="zrK-Jk-MWs"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xEn-b3-mVO">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0IS-16-8ca" kind="relationship" relationship="rootViewController" id="MJI-YA-0WI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xo2-Qv-Nc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="940" y="985.45727136431788"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gY8-GW-p0c"/>
+        <segue reference="U8G-86-ERf"/>
     </inferredMetricsTieBreakers>
 </document>

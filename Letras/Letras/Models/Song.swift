@@ -17,4 +17,10 @@ struct Song: Codable {
     let name: String
     let title: String
     let text: String
+    
+    init(name: String, title: String, text: String) {
+        self.name = name
+        self.title = title
+        self.text = text
+    }
 }
