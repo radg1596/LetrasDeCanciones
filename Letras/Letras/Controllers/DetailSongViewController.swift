@@ -17,24 +17,25 @@ class DetailSongViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
-        songTextView.allowsEditingTextAttributes = false
-        let navControllerSongTVC = tabBarController?.viewControllers?.last as? UINavigationController
-        let songsTableVC =  navControllerSongTVC?.viewControllers.first! as? SongsTableViewController
-        self.delegate = songsTableVC
+        songTextView.isEditable = false
+        guard let navControllerSongTVC = tabBarController?.viewControllers?.last as? UINavigationController, let songsTableVC =  navControllerSongTVC.viewControllers.first as? SongsTableViewController else {return}
+        delegate = songsTableVC
+        setupUI(songsTableVC: songsTableVC)
         save()
-        save()
-        // Do any additional setup after loading the view.
+        setupUI(songsTableVC: songsTableVC)
     }
     
-    func setupNavigationBar() {
+    func setupUI(songsTableVC: SongsTableViewController) {
         self.title = "\(song.name)-\(song.title)"
         songTextView.text = song.text
+        let songInStorage = !songsTableVC.songs.contains(song)
+        navigationItem.rightBarButtonItem?.isEnabled = songInStorage
     }
     
     func save() {
         delegate?.added(song: song)
     }
+    
     
 
     /*

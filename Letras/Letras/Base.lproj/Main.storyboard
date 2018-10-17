@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title of the song" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HcJ-XF-xFY">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="New Born" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HcJ-XF-xFY">
                                 <rect key="frame" x="30" y="152" width="315" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="HcJ-XF-xFY" secondAttribute="height" multiplier="21:2" id="bhg-Ub-2dt"/>
@@ -37,7 +37,7 @@
                                     <action selector="searchSongText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aE7-EK-5kg"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Artist" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KiP-nU-cHo">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Muse" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KiP-nU-cHo">
                                 <rect key="frame" x="30" y="252" width="315" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KiP-nU-cHo" secondAttribute="height" multiplier="21:2" id="bcQ-xf-w4Z"/>
@@ -118,7 +118,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eev-iU-vTv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1879.2" y="985.45727136431788"/>
+            <point key="canvasLocation" x="1086" y="985"/>
         </scene>
         <!--Detail Song View Controller-->
         <scene sceneID="l96-qw-0bH">
@@ -146,7 +146,9 @@
                         <viewLayoutGuide key="safeArea" id="j3q-LR-j9f"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZOO-au-fZ8">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="ej1-fh-FMx"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="ej1-fh-FMx">
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="songTextView" destination="DXA-kV-gSx" id="XIc-ZI-06X"/>
@@ -154,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yK9-2a-5jv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2964" y="986.35682158920542"/>
+            <point key="canvasLocation" x="2025" y="985"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dVK-fs-wlk">
@@ -211,7 +213,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xo2-Qv-Nc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="940" y="985.45727136431788"/>
+            <point key="canvasLocation" x="62" y="986"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

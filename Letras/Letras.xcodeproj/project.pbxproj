@@ -19,7 +19,7 @@
 		63C70BFE21769BA10058F01C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63C70BFC21769BA10058F01C /* LaunchScreen.storyboard */; };
 		63C70C0921769BA10058F01C /* LetrasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C70C0821769BA10058F01C /* LetrasTests.swift */; };
 		63C70C1421769BA10058F01C /* LetrasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C70C1321769BA10058F01C /* LetrasUITests.swift */; };
-		63C70C2221769BCA0058F01C /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C70C2121769BCA0058F01C /* Client.swift */; };
+		63C70C2221769BCA0058F01C /* ClientText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C70C2121769BCA0058F01C /* ClientText.swift */; };
 		63C70C2621769C0E0058F01C /* JsonSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C70C2521769C0D0058F01C /* JsonSong.swift */; };
 		63C70C2821769C290058F01C /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C70C2721769C290058F01C /* Song.swift */; };
 		63C70C2A21769CD50058F01C /* SongService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C70C2921769CD50058F01C /* SongService.swift */; };
@@ -61,7 +61,7 @@
 		63C70C0F21769BA10058F01C /* LetrasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LetrasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C70C1321769BA10058F01C /* LetrasUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetrasUITests.swift; sourceTree = "<group>"; };
 		63C70C1521769BA10058F01C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63C70C2121769BCA0058F01C /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		63C70C2121769BCA0058F01C /* ClientText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientText.swift; sourceTree = "<group>"; };
 		63C70C2521769C0D0058F01C /* JsonSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonSong.swift; sourceTree = "<group>"; };
 		63C70C2721769C290058F01C /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		63C70C2921769CD50058F01C /* SongService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongService.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 		63C70C2321769BD00058F01C /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				63C70C2121769BCA0058F01C /* Client.swift */,
+				63C70C2121769BCA0058F01C /* ClientText.swift */,
 				63C70C2921769CD50058F01C /* SongService.swift */,
 			);
 			path = Services;
@@ -330,7 +330,7 @@
 				63C6C5912176CD1B00F5B7D7 /* SongsTableViewController.swift in Sources */,
 				63C6C58E2176C9D900F5B7D7 /* StorageType.swift in Sources */,
 				63C70C2621769C0E0058F01C /* JsonSong.swift in Sources */,
-				63C70C2221769BCA0058F01C /* Client.swift in Sources */,
+				63C70C2221769BCA0058F01C /* ClientText.swift in Sources */,
 				63C70C2821769C290058F01C /* Song.swift in Sources */,
 				63C6C5932176CD7B00F5B7D7 /* DetailSongViewController.swift in Sources */,
 				63C6C58B2176C7C200F5B7D7 /* StorageSongs.swift in Sources */,

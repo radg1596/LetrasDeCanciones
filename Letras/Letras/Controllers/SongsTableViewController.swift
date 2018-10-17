@@ -37,7 +37,6 @@ class SongsTableViewController: UITableViewController, AddSongDelegate {
         cell.textLabel?.text = song.name
         cell.detailTextLabel?.text = song.title
         
-
         return cell
     }
     
@@ -45,15 +44,6 @@ class SongsTableViewController: UITableViewController, AddSongDelegate {
         performSegue(withIdentifier: "showSong", sender: self)
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

@@ -18,8 +18,31 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
+    
+    @IBAction func searchSongText(_ sender: UIButton) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        let name = self.artistTextField.text ?? ""
+        let title = self.titleSongTextField.text ?? ""
+        SongService.shared.getSong(name: name, title: title) { (song) in
+            guard let song = song else {
+                self.showUIAlert()
+                return
+            }
+            self.song = song
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            self.performSegue(withIdentifier: "downloadSong", sender: self)
+        }
+    }
+    
+    
+    func showUIAlert() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        let alertController = UIAlertController(title: "Song not found", message: "Please, retry with another one", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+    
     
     // MARK: - Navigation
 
@@ -30,25 +53,5 @@ class SearchViewController: UIViewController {
         detailSongVC?.song = song
     }
     
-    
-    
-    @IBAction func searchSongText(_ sender: UIButton) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let name = self.artistTextField.text ?? ""
-        let title = self.titleSongTextField.text ?? ""
-        SongService.shared.getSongText(name: name, title: title) { (text) in
-            guard let text = text else {return
-                print("UIAlert")
-            }
-            //"Coldplay" "Adventure of a Lifetime"
-            let song = Song(name: name , title: title , text: text)
-            self.song = song
-            print(song == song)
-            DispatchQueue.main.async {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                self.performSegue(withIdentifier: "downloadSong", sender: self)
-            }
-        }
-    }
     
 }
