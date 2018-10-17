@@ -24,3 +24,14 @@ struct Song: Codable {
         self.text = text
     }
 }
+
+/*
+ Extensión de Song para conformar el protocolo de igualdad.
+ Una canción es igual a otra cuando sus títulos y nombres son iguales.
+ Sirve para evitar agregar a "Mis canciones" la misma canción dos o más veces.
+ */
+extension Song: Equatable {
+    static func ==(lhs: Song, rhs: Song) -> Bool {
+        return lhs.name == rhs.name && lhs.title == rhs.title
+    }
+}

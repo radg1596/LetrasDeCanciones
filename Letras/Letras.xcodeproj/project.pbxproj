@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6395BBC22176DAB20001BF8F /* AddSongDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6395BBC12176DAB20001BF8F /* AddSongDelegate.swift */; };
 		63C6C58B2176C7C200F5B7D7 /* StorageSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6C58A2176C7C200F5B7D7 /* StorageSongs.swift */; };
 		63C6C58E2176C9D900F5B7D7 /* StorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6C58D2176C9D900F5B7D7 /* StorageType.swift */; };
 		63C6C5912176CD1B00F5B7D7 /* SongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6C5902176CD1B00F5B7D7 /* SongsTableViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6395BBC12176DAB20001BF8F /* AddSongDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongDelegate.swift; sourceTree = "<group>"; };
 		63C6C58A2176C7C200F5B7D7 /* StorageSongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageSongs.swift; sourceTree = "<group>"; };
 		63C6C58D2176C9D900F5B7D7 /* StorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageType.swift; sourceTree = "<group>"; };
 		63C6C5902176CD1B00F5B7D7 /* SongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6395BBC32176E3BD0001BF8F /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				6395BBC12176DAB20001BF8F /* AddSongDelegate.swift */,
+				63C70BF321769B9E0058F01C /* AppDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 		63C6C58C2176C7CA00F5B7D7 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,8 +143,8 @@
 		63C70BF221769B9E0058F01C /* Letras */ = {
 			isa = PBXGroup;
 			children = (
-				63C70BF321769B9E0058F01C /* AppDelegate.swift */,
 				63C6C58F2176CCE500F5B7D7 /* Controllers */,
+				6395BBC32176E3BD0001BF8F /* Delegates */,
 				63C70C2421769BF40058F01C /* Models */,
 				63C70C2321769BD00058F01C /* Services */,
 				63C6C58C2176C7CA00F5B7D7 /* Storage */,
@@ -313,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63C6C5952176CDA700F5B7D7 /* SearchViewController.swift in Sources */,
+				6395BBC22176DAB20001BF8F /* AddSongDelegate.swift in Sources */,
 				63C70BF421769B9E0058F01C /* AppDelegate.swift in Sources */,
 				63C70C2A21769CD50058F01C /* SongService.swift in Sources */,
 				63C6C5912176CD1B00F5B7D7 /* SongsTableViewController.swift in Sources */,

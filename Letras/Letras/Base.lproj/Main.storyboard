@@ -33,6 +33,9 @@
                                 <state key="normal" title="Search">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="searchSongText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aE7-EK-5kg"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Artist" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KiP-nU-cHo">
                                 <rect key="frame" x="30" y="252" width="315" height="30"/>
@@ -44,7 +47,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HcJ-XF-xFY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="4Z3-Ie-Cvy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KiP-nU-cHo" secondAttribute="trailing" constant="30" id="F4M-SJ-6Mp"/>
@@ -60,6 +63,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="My lyrics" id="io9-HM-gwn"/>
                     <connections>
+                        <outlet property="artistTextField" destination="KiP-nU-cHo" id="AR9-5M-sxI"/>
+                        <outlet property="titleSongTextField" destination="HcJ-XF-xFY" id="LFq-Uy-Rts"/>
                         <segue destination="vrl-Fa-eBm" kind="show" identifier="downloadSong" id="dBL-yc-L2B"/>
                     </connections>
                 </viewController>
@@ -210,6 +215,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="U8G-86-ERf"/>
+        <segue reference="dBL-yc-L2B"/>
     </inferredMetricsTieBreakers>
 </document>
