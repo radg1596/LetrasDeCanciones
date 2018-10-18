@@ -10,6 +10,11 @@ import Foundation
 
 struct StorageSong {
     
+    static let shared = StorageSong()
+    
+    let jsonDecoder = JSONDecoder()
+    let jsonEncoder = JSONEncoder()
+    
     var filePath: URL?{
         StorageType.shared.ensureExists()
         var filePath = StorageType.shared.folder
@@ -18,10 +23,21 @@ struct StorageSong {
     }
     
     func load() -> [Song]? {
-        return nil
+        if let data = try? Data(contentsOf: filePath!), let songs = try? jsonDecoder.decode(Array<Song>.self, from: data) {
+            return songs
+        }
+        else {return nil}
     }
     
     func saveData(listof songs: [Song]) {
+        if let data = try? jsonEncoder.encode(songs) {
+            do {
+                try data.write(to: filePath!)
+            }
+            catch let(error) {
+                print("There is an error writing in storage memory: \(error)")
+            }
+        }
     }
     
 }

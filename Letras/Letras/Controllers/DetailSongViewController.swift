@@ -10,7 +10,11 @@ import UIKit
 
 class DetailSongViewController: UIViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var songTextView: UITextView!
+    
+    // MARK: - Propierties
     
     var song: Song!
     var delegate: AddSongDelegate?
@@ -21,6 +25,8 @@ class DetailSongViewController: UIViewController {
         return songsTableViewController
     }
     
+    // MARK: - View Fuctions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -30,6 +36,8 @@ class DetailSongViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         updateSaveButtonStatus()
     }
+    
+    // MARK: Functions
     
     func setupUI() {
         title = "\(song.name)-\(song.title)"
@@ -43,6 +51,8 @@ class DetailSongViewController: UIViewController {
         let songInStorage = !songsTableViewController.songs.contains(song)
         navigationItem.rightBarButtonItem?.isEnabled = songInStorage
     }
+    
+    // MARK: - Actions
     
     @IBAction func saveSong() {
         delegate?.added(song: song)

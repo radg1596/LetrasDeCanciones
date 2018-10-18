@@ -10,11 +10,18 @@ import UIKit
 
 class SongsTableViewController: UITableViewController, AddSongDelegate {
     
+    // MARK: Propierties
+    
     var songs = [Song]()
+    
+    // MARK: - View Fuctions
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = self.editButtonItem
+        if let songs = StorageSong.shared.load() {
+            self.songs = songs
+        }
     }
 
     // MARK: - Table view data source
@@ -29,7 +36,6 @@ class SongsTableViewController: UITableViewController, AddSongDelegate {
         return songs.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "songCell", for: indexPath)
         let song = songs[indexPath.row]
@@ -48,29 +54,28 @@ class SongsTableViewController: UITableViewController, AddSongDelegate {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             songs.remove(at: indexPath.row)
+            StorageSong.shared.saveData(listof: songs)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else {return}
         let selectedSong = songs[indexPath.row]
-        let detailSongVC = segue.destination as? DetailSongViewController
-        detailSongVC?.song = selectedSong
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let detailSongViewController = segue.destination as? DetailSongViewController
+        detailSongViewController?.song = selectedSong
     }
 
     
-    // MARK: - Methods
-    
+    // MARK: - Functions
+    //Función del protocolo AddSongDelegate
     func added(song: Song) {
         //Se agrega una canción a TableView, se verifica que no se haya guardado antes
         if !songs.contains(song) {
             songs.append(song)
+            StorageSong.shared.saveData(listof: songs)
             tableView.reloadData()
         }
     }

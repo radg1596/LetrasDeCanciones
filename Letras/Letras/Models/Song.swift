@@ -32,6 +32,10 @@ struct Song: Codable {
  */
 extension Song: Equatable {
     static func ==(lhs: Song, rhs: Song) -> Bool {
-        return lhs.name == rhs.name && lhs.title == rhs.title
+        let lhsName = lhs.name.uppercased()
+        let rhsName = rhs.name.uppercased()
+        let lhsTitle = lhs.title.uppercased()
+        let rhsTitle = rhs.title.uppercased()
+        return lhsName == rhsName && lhsTitle == rhsTitle
     }
 }
