@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBOutlet weak var titleSongTextField: UITextField!
@@ -18,6 +18,8 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleSongTextField.delegate = self
+        artistTextField.delegate = self
     }
     
     @IBAction func searchSongText(_ sender: UIButton) {
@@ -42,6 +44,10 @@ class SearchViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     // MARK: - Navigation
 

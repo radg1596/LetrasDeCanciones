@@ -51,22 +51,6 @@ class SongsTableViewController: UITableViewController, AddSongDelegate {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     
     // MARK: - Navigation
 
@@ -84,13 +68,12 @@ class SongsTableViewController: UITableViewController, AddSongDelegate {
     // MARK: - Methods
     
     func added(song: Song) {
-        //Se agrega una canción aa TableView, se verifica que no se haya guardado antes
+        //Se agrega una canción a TableView, se verifica que no se haya guardado antes
         if !songs.contains(song) {
             songs.append(song)
             tableView.reloadData()
         }
     }
-    
     
 
 }

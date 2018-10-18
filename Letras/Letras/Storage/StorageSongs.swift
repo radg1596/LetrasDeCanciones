@@ -17,10 +17,11 @@ struct StorageSong {
         return filePath
     }
     
-    func load() {
+    func load() -> [Song]? {
+        return nil
     }
     
-    func saveData() {
+    func saveData(listof songs: [Song]) {
     }
     
 }
