@@ -11,7 +11,7 @@ import UIKit
 class SongsTableViewController: UITableViewController, AddSongDelegate {
     
     // MARK: Propierties
-    
+    //Contiene las canciones de la tabla
     var songs = [Song]()
     
     // MARK: - View Fuctions
@@ -19,6 +19,7 @@ class SongsTableViewController: UITableViewController, AddSongDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = self.editButtonItem
+        //Carga los datos de la memoria persistente
         if let songs = StorageSong.shared.load() {
             self.songs = songs
         }
@@ -46,11 +47,14 @@ class SongsTableViewController: UITableViewController, AddSongDelegate {
         return cell
     }
     
+    /*
+     Cuando se presiona una celda, se muestran los detalles
+     */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showSong", sender: self)
     }
     
-    // Override to support editing the table view.
+    // Eliminar una canción de la tabla
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             songs.remove(at: indexPath.row)
@@ -60,7 +64,7 @@ class SongsTableViewController: UITableViewController, AddSongDelegate {
     }
     
     // MARK: - Navigation
-
+    //Le envía la canción seleccionada a la vista que mostrará sus detalles
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else {return}
         let selectedSong = songs[indexPath.row]
@@ -70,7 +74,7 @@ class SongsTableViewController: UITableViewController, AddSongDelegate {
 
     
     // MARK: - Functions
-    //Función del protocolo AddSongDelegate
+    //Función del protocolo AddSongDelegate, agrega una canción a la lista
     func added(song: Song) {
         //Se agrega una canción a TableView, se verifica que no se haya guardado antes
         if !songs.contains(song) {

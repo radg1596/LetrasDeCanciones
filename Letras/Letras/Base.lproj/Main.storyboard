@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title of the song" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HcJ-XF-xFY">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title of the song" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HcJ-XF-xFY">
                                 <rect key="frame" x="30" y="185" width="315" height="30"/>
                                 <color key="backgroundColor" name="yellow"/>
                                 <constraints>
@@ -45,7 +45,7 @@
                                     <action selector="searchSongText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aE7-EK-5kg"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Artist" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KiP-nU-cHo">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KiP-nU-cHo">
                                 <rect key="frame" x="30" y="252" width="315" height="30"/>
                                 <color key="backgroundColor" name="yellow"/>
                                 <constraints>
@@ -264,6 +264,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="U8G-86-ERf"/>
+        <segue reference="dBL-yc-L2B"/>
     </inferredMetricsTieBreakers>
 </document>

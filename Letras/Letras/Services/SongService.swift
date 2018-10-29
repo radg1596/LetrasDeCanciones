@@ -13,7 +13,7 @@ struct SongService {
     //Evita estar creando instancias de la clase para usar los métodos
     static let shared = SongService()
     
-    //Cliente
+    //Cliente que obtiene el texto de la canción
     let client = ClientText(baseURLComponents: URLComponents(string: "https://api.lyrics.ovh")!)
     
     /*

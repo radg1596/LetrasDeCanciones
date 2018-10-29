@@ -16,11 +16,11 @@ struct ClientText {
     let jsonDecoder = JSONDecoder()
     
     /*
-     -Recibe un clusure y un path como parámetro (String)
+     -Recibe un closure y un path como parámetro (String)
         Ejemplo de path: "/v1/name/title"
      -Se encarga de crea un request (método GET) a partir de este path y la URL base
      -Después obtiene los datos de la API en el background, una vez
-     obtenidos, los decodifica para obtener el texto de la canción, después ejecuta el closure recibido en el hilo principal.
+     obtenidos, los decodifica para obtener el texto de la canción (Y verifica que no sea texto vacio), después ejecuta el closure recibido en el hilo principal.
      */
     func get(path: String, completion: @escaping (String?) -> Void ) {
         var resquestURLComponents = baseURLComponents
@@ -28,8 +28,8 @@ struct ClientText {
         var resquest = URLRequest(url: resquestURLComponents.url!)
         resquest.httpMethod = "GET"
         let task = URLSession.shared.dataTask(with: resquest ) { (data, response, error) in
-            if let data = data, let jsonSong = try? self.jsonDecoder.decode(JsonSong.self, from: data) {
-                DispatchQueue.main.async {completion(jsonSong.text)}
+            if let data = data, let jsonSong = try? self.jsonDecoder.decode(JsonSong.self, from: data), jsonSong.text.isEmpty == false {
+                    DispatchQueue.main.async {completion(jsonSong.text)}
             }
             else {
                 DispatchQueue.main.async {completion(nil)}
