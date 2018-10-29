@@ -15,6 +15,7 @@ Modelo que nos sirve para contener el texto de la canción, el cual se obtiene d
 */
 struct JsonSong: Codable {
     let text: String
+    //Se hace el match entre el JSON y nuestro modelo
     enum CodingKeys: String, CodingKey {
         case text = "lyrics"
     }

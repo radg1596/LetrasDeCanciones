@@ -24,21 +24,24 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Delegados para los textFields
         titleSongTextField.delegate = textFieldDelegate
         artistTextField.delegate = textFieldDelegate
     }
 
     // MARK: - Functions
-    
+    //UIAlert que nos indica cuando la consulta no arroja resultados
     func showUIAlert() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         let alertController = UIAlertController(title: "Song not found", message: "Please, retry with another one", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
     
     // MARK: - Actions
-    
+    /*
+     Intenta obtener una canción del servicio y después muestra sus detalles, en caso de no poder obtenerla muestra un UIAlert
+     */
     @IBAction func searchSongText(_ sender: UIButton) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let name = self.artistTextField.text ?? ""
@@ -56,7 +59,9 @@ class SearchViewController: UIViewController {
     
     
     // MARK: - Navigation
-
+    /*
+     Le envía la canción obtenida del servicio a la vista que desplegará sus detalles
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let song = song else {return}
         let detailSongViewController = segue.destination as? DetailSongViewController

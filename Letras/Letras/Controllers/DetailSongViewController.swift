@@ -19,6 +19,7 @@ class DetailSongViewController: UIViewController {
     var song: Song!
     var delegate: AddSongDelegate?
     
+    //Se obtiene el SongsTableViewController
     var songsTableViewController: SongsTableViewController? {
         let navigationControllerSongTVC = tabBarController?.viewControllers?.last as? UINavigationController
         let songsTableViewController = navigationControllerSongTVC?.viewControllers.first as? SongsTableViewController
@@ -33,12 +34,18 @@ class DetailSongViewController: UIViewController {
         delegate = songsTableViewController
     }
     
+    //Actualiza el estado del botón "guardar" cada vez que aparece la vista
     override func viewWillAppear(_ animated: Bool) {
         updateSaveButtonStatus()
     }
     
     // MARK: Functions
-    
+    /*
+     Se configura la interfaz:
+        -Se le pone el título a la vista
+        -Se carga la letra de la canción y se hace no editable el textView
+        -Se actualiza el estado del botón "Guardar"
+     */
     func setupUI() {
         title = "\(song.name)-\(song.title)"
         songTextView.isEditable = false
@@ -46,6 +53,9 @@ class DetailSongViewController: UIViewController {
         updateSaveButtonStatus()
     }
     
+    /*
+     Se encarga de verificar si la canción actual está o no en disco, dependiendo de eso ajusta el botón "Guardar"
+     */
     func updateSaveButtonStatus() {
         guard let songsTableViewController = songsTableViewController else {return}
         let songInStorage = !songsTableViewController.songs.contains(song)
@@ -54,6 +64,7 @@ class DetailSongViewController: UIViewController {
     
     // MARK: - Actions
     
+    //Le indica al delegado la canción a guardar
     @IBAction func saveSong() {
         delegate?.added(song: song)
         updateSaveButtonStatus()

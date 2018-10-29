@@ -15,12 +15,16 @@ struct StorageSong {
     let jsonDecoder = JSONDecoder()
     let jsonEncoder = JSONEncoder()
     
+    //URL donde se guardarán los datos
     var filePath: URL?{
         StorageType.shared.ensureExists()
         var filePath = StorageType.shared.folder
         filePath.appendPathComponent("songs")
         return filePath
     }
+    /*
+     Carga los datos de la memoria local, los decodifica y retorna como [Song]
+     */
     
     func load() -> [Song]? {
         if let data = try? Data(contentsOf: filePath!), let songs = try? jsonDecoder.decode(Array<Song>.self, from: data) {
@@ -29,6 +33,9 @@ struct StorageSong {
         else {return nil}
     }
     
+    /*Recibe un Array de Songs
+     Los codifica y escribe en memoria persistente
+     */
     func saveData(listof songs: [Song]) {
         if let data = try? jsonEncoder.encode(songs) {
             do {

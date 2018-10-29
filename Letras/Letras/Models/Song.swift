@@ -27,7 +27,7 @@ struct Song: Codable {
 
 /*
  Extensión de Song para conformar el protocolo de igualdad.
- Una canción es igual a otra cuando sus títulos y nombres son iguales.
+ Una canción es igual a otra cuando sus títulos y nombres son iguales (Se pasa todo a mayúsculas).
  Sirve para evitar agregar a "Mis canciones" la misma canción dos o más veces.
  */
 extension Song: Equatable {

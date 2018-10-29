@@ -12,10 +12,12 @@ struct StorageType {
     
     static let shared = StorageType()
     
+    //Directorio
     var searchPathDirectory: FileManager.SearchPathDirectory {
         return .documentDirectory
     }
     
+    //Folder en Filemanager
     var folder: URL {
         var url = FileManager.default.urls(for: searchPathDirectory , in: .userDomainMask).first!
         let subfolder = "dgra"
@@ -23,10 +25,9 @@ struct StorageType {
         return url
     }
     
-    func clearStorage() {
-        try? FileManager.default.removeItem(at: folder)
-    }
-    
+    /*
+     Se asegura de que no exista un archivo creado en el folder de la aplicación, si hay otro tipo de archivo lo elimina y crea un directorio
+     */
     func ensureExists() {
         let fileManager = FileManager.default
         var isDir: ObjCBool = false
